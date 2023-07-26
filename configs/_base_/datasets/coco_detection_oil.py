@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = '/input/jungtdet/data_coco/'
+data_root = './oiltank_dataset/'
 classes = ('oil tank')
 
 # Example to use different file client
@@ -45,8 +45,8 @@ train_dataloader = dict(
         metainfo = dict(classes=classes),
         type=dataset_type,
         data_root=data_root,
-        ann_file='train/train_label.json',
-        data_prefix=dict(img='train/img/'),
+        ann_file='annotations/train_labels.json',
+        data_prefix=dict(img='train_images/'),
         filter_cfg=dict(filter_empty_gt=True, min_size=32),
         pipeline=train_pipeline,
         backend_args=backend_args))
@@ -60,8 +60,8 @@ val_dataloader = dict(
         metainfo = dict(classes=classes),
         type=dataset_type,
         data_root=data_root,
-        ann_file='train/train_label.json',
-        data_prefix=dict(img='train/img/'),
+        ann_file='annotations/train_labels.json',
+        data_prefix=dict(img='train_images/'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))
@@ -69,7 +69,7 @@ test_dataloader = val_dataloader
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'train/train_label.json',
+    ann_file=data_root + 'annotations/train_labels.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
@@ -87,7 +87,7 @@ test_dataloader = dict(
          metainfo = dict(classes=classes),
          type=dataset_type,
          data_root=data_root,
-         ann_file=data_root + 'val/valtest.json',
+         ann_file=data_root + 'annotations/valid_labels.json',
          data_prefix=dict(img='val/img/'),
          test_mode=True,
          pipeline=test_pipeline))
@@ -95,5 +95,5 @@ test_evaluator = dict(
      type='CocoMetric',
      metric='bbox',
      format_only=True,
-     ann_file=data_root + 'val/valtest.json',
+     ann_file=data_root + 'annotations/valid_labels.json',
      outfile_prefix='/output')

@@ -4,7 +4,7 @@ _base_ = [
 ]
 
 
-load_from="/input/jungtdet/rtmdet_coco_pretrain.pth"
+load_from="https://github.com/lionkingchuchu/myga_submit/releases/download/weights/rtmdet_coco_pretrain_weight.pth"
 model = dict(
     type='RTMDet',
     data_preprocessor=dict(
