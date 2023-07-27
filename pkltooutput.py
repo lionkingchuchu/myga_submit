@@ -20,7 +20,7 @@ def buildrow(objname, bbox, score):
 
 writelst = [['File','Confidence','X1','Y1','X2','Y2','X3','Y3','X4','Y4']]
 for i in range(len(data)):
-    objname = list(data[i]['img_path'].split('/'))[6][:8]
+    objname = list(data[i]['img_path'].split('/'))[3][:8]
     num_bbox = len(data[i]['pred_instances']['bboxes'])
 
     for j in range(num_bbox):
@@ -52,7 +52,7 @@ def buildrow(objname, bbox, score):
 
 writelst = [['File','Confidence','X1','Y1','X2','Y2','X3','Y3','X4','Y4']]
 for i in range(len(data)):
-    objname = list(data[i]['img_path'].split('/'))[6][:8]
+    objname = list(data[i]['img_path'].split('/'))[3][:8]
     num_bbox = len(data[i]['pred_instances']['bboxes'])
 
     for j in range(num_bbox):

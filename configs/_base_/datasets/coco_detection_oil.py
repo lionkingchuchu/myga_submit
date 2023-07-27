@@ -86,9 +86,9 @@ test_dataloader = dict(
      dataset=dict(
          metainfo = dict(classes=classes),
          type=dataset_type,
-         data_root=data_root,
-         ann_file=data_root + 'annotations/valid_labels.json',
-         data_prefix=dict(img='val/img/'),
+         data_root='',
+         ann_file='./oiltank_dataset/annotations/valid_labels.json',
+         data_prefix=dict(img=''),
          test_mode=True,
          pipeline=test_pipeline))
 test_evaluator = dict(
